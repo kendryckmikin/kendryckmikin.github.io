@@ -4753,3 +4753,73 @@ img.u-pull-left {
 .expandable-image:hover {
     transform: scale(1.2); /* Expand on hover */
 }
+
+.prototype-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+    column-gap: 200px; /* Space between tasks and prototype */
+    row-gap: 20px; /* Space between stacked items in mobile */
+    align-items: start;  
+    text-align: left;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Title spans both columns on desktop */
+.prototype-title {
+    grid-column: span 1;
+    text-align: center;
+}
+
+/* Tasks (Left on desktop) */
+.tasks {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+    padding-right: 80px; /* Adds spacing on the right */
+    max-width: 600px; /* Keeps tasks from being too narrow */
+    width: 100%;
+    margin-left: 80px;  /* Centers it inside its grid column */
+    margin-right: 80px; /* Centers it inside its grid column */
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Prototype (Right on desktop) */
+.prototype {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 30px; /* Adds spacing on the left */
+}
+
+/* 🔥 Mobile Fix: Stack items but keep spacing */
+@media (max-width: 768px) {
+    .prototype-container {
+        grid-template-columns: 1fr; /* Switch to single column */
+        row-gap: 30px; /* Add spacing between stacked elements */
+        text-align: center;
+    }
+
+     .prototype-container h1 {
+        text-align: center; /* Ensure title is centered */
+        width: 100%; /* Make sure it spans full width */
+        margin: 0 auto; /* Centers it horizontally */
+    }
+
+    .tasks {
+        text-align: center; /* Center-aligns text */
+        padding: 0 20px; /* Adds left & right padding */
+        margin: 0 auto; /* Centers the block */
+    }
+
+    .prototype {
+        grid-column: span 1;
+        grid-row: 3; /* Keep prototype below tasks */
+        padding: 0;
+    }
+}
+
+
+
+
+
