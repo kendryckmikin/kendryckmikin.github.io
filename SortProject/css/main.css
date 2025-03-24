@@ -4139,32 +4139,44 @@ html.no-csstransitions .home-content__main {
     padding-left: 30px; /* Adds spacing on the left */
 }
 
-/* 🔥 Mobile Fix: Stack items but keep spacing */
-@media (max-width: 768px) {
+/* 🔥 Mobile Optimization: iPhone 13 Pro (390x844) */
+@media (max-width: 400px) {  /* Covers iPhone 13 Pro and similar screens */
     .prototype-container {
-        grid-template-columns: 1fr; /* Switch to single column */
-        row-gap: 30px; /* Add spacing between stacked elements */
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center; /* Ensures everything is centered */
+        row-gap: 20px; /* Space between stacked elements */
+        width: 100vw;
+        padding: 0;
         text-align: center;
     }
 
-     .prototype-container h1 {
-        text-align: center; /* Ensure title is centered */
-        width: 100%; /* Make sure it spans full width */
-        margin: 0 auto; /* Centers it horizontally */
+    .prototype-container h1 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+        width: 90%; /* Prevents it from stretching too wide */
+        margin: 0 auto; /* Ensures centering */
     }
 
     .tasks {
-        text-align: center; /* Center-aligns text */
-        padding: 0 20px; /* Adds left & right padding */
-        margin: 0 auto; /* Centers the block */
+        text-align: center;
+        padding: 0 15px; /* Adds slight left & right spacing */
+        max-width: 90%; /* Ensures it doesn’t take up too much space */
+        font-size: 1rem; /* Adjust text size for readability */
+        line-height: 1.4; /* Increases spacing between lines */
     }
 
     .prototype {
-        grid-column: span 1;
-        grid-row: 3; /* Keep prototype below tasks */
+        width: 100%;
+        height: 60vh;
+        max-height: 500px;
+        max-width: 375px; /* Matches iPhone screen width */
         padding: 0;
+        margin-bottom: 200px;
     }
+
 }
+
 
 .custom-link {
     color: inherit; /* Keep the current font color */
